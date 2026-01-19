@@ -36,7 +36,7 @@ class Gestor_Fitexers:
                     counter += 1
         return counter
     
-    def escriu_text(self, fitxer, text, MOF ="a"):
+    def escriu_text(self, fitxer, text, MOF = "a"):
         Ubicacio = self.dir
         try:
             fitxer in Ubicacio
@@ -49,5 +49,5 @@ class Gestor_Fitexers:
 fitxer = Gestor_Fitexers("C:\\Users\\AppJT\\VSC_batx\\Exercicis\\Prova_Gestor_Fitxers")
 print(fitxer.llista_fitxers(".txt"))
 print(fitxer.compta_fitxers(".txt"))
-fitxer.escriu_text("fitxer1.txt", "\nAixò és una prova d'escriptura en un fitxer.", "w")
+fitxer.escriu_text("fitxer_1.txt", "\nAixò és una prova d'escriptura en un fitxer.", "w")
 print(fitxer.llista_fitxers(".txt")) 
