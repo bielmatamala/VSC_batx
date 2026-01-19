@@ -4,8 +4,12 @@ import os
 class Gestor_Fitexers:
     def __init__ (self, directori):
         self.dir = Path(directori)
-        if not self.dir.exists():
-            self.dir.mkdir()
+        if directori not in os.listdir():
+            os.mkdir(directori)
+            if "fitxer_1.txt" not in os.listdir(directori):
+                fitxer = open(directori + "\\fitxer_1.txt", "w")
+                fitxer.write("Aquest és el fitxer 1.\n")
+                fitxer.close()
 
     def llista_fitxers(self, extencio=None):
         fitxer = self.dir.iterdir()
@@ -42,7 +46,7 @@ class Gestor_Fitexers:
         except FileNotFoundError:
             print("El fitxer no existeix")
 
-fitxer = Gestor_Fitexers("C:/Users/AppJT/Documents/VSC general/Exercicis/Prova_Gestor_Fitxers")
+fitxer = Gestor_Fitexers("C:\\Users\\AppJT\\VSC_batx\\Exercicis\\Prova_Gestor_Fitxers")
 print(fitxer.llista_fitxers(".txt"))
 print(fitxer.compta_fitxers(".txt"))
 fitxer.escriu_text("fitxer1.txt", "\nAixò és una prova d'escriptura en un fitxer.", "w")
