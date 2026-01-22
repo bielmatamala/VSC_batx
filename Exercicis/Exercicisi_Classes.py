@@ -1,10 +1,10 @@
 import math
 #------------------------------------------1--------------------------------
 class Punt2D:
-    def __init__(self, x=0, y=0):
+    def __init__(self, x = 0, y = 0):
         self.x = x
         self.y = y
-    
+
     def __str__(self):
         return f"Punt2D({self.x}, {self.y})"
     
@@ -20,9 +20,6 @@ class Punt2D:
         self.x += dx
         self.y += dy
         return (self.x, self.y)
-    
-    def __str__(self):
-        return f"Punt2D({self.x}, {self.y})"
     
 Punt2D_1 = Punt2D(3, 4)
 print(Punt2D_1)

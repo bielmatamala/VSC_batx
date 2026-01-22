@@ -1,0 +1,37 @@
+1. Conceptes Fonamentals
+Brais comença explicant la diferència entre Frontend (la interfície que veu l'usuari) i Backend (la lògica que corre al servidor). El backend és l'encarregat de gestionar la base de dades, la seguretat i processar la informació que el client sol·licita.
+
+2. Què és una API i FastAPI?
+Una API és el mecanisme que permet que el frontend i el backend es comuniquin mitjançant estàndards. S'utilitza el framework FastAPI perquè és modern, ràpid i genera documentació automàtica amb Swagger.
+
+3. Operacions i Comandes HTTP (CRUD)
+Aquesta és la part central on s'explica per a què serveix cada mètode:
+
+GET: S'utilitza per llegir o obtenir dades del servidor. Per exemple, demanar la llista d'usuaris.
+
+POST: Serveix per crear o enviar informació nova al servidor (com registrar un usuari nou).
+
+PUT: S'utilitza per actualitzar una dada que ja existeix completament.
+
+DELETE: Serveix per eliminar un recurs del servidor.
+
+Status Codes: Són les respostes del servidor (Ex: 200 OK, 404 Not Found, 500 Internal Server Error).
+
+4. Gestió de dades i Tipats
+S'explica l'ús de Type Hints de Python per assegurar que les dades que rebem són del tipus correcte (strings, enters, etc.), i l'ús de Pydantic per crear models de dades (esquemes).
+
+5. Routers i Recursos Estàtics
+A mesura que l'API creix, s'utilitzen els Routers per organitzar el codi en diferents fitxers (per exemple, un fitxer per a usuaris i un altre per a productes) per mantenir el projecte net.
+
+6. Seguretat i Autenticació
+Es tracten dos mètodes clau per protegir l'API:
+
+OAuth2: Un estàndard per a l'autorització.
+
+JWT (JSON Web Tokens): Una manera segura de transmetre informació entre parts com un objecte JSON, molt usat per mantenir la sessió de l'usuari iniciada.
+
+7. Base de Dades: MongoDB
+En lloc de fitxers locals, s'ensenya a connectar l'API a una base de dades NoSQL com MongoDB (i la seva versió al núvol Atlas). Això permet que les dades siguin persistents i escalables.
+
+8. Desplegament (Deployment)
+Finalment, s'explica com pujar el codi a un servidor real per tal que tothom hi pugui accedir per internet. Tot i que al vídeo s'esmenta Deta, actualment es recomana utilitzar alternatives com Vercel o Render.

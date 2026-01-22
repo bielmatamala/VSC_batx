@@ -1,0 +1,11 @@
+Entès! Vols una guia de consulta ràpida (Cheat Sheet) amb totes les funcions i decoradors que realment faràs servir en el dia a dia amb FastAPI, més enllà dels exemples bàsics del vídeo.Aquí tens la taula tècnica detallada. Pots copiar-la a un document per tenir-la sempre a mà.🚀 Guia de Referència: Funcions Reals de FastAPICategoriaFunció / DecoradorÚs i ExempleRutes (Mètodes)@app.get("/")Obtenir dades. L'estàndard per llegir.@app.post("/")Crear. Enviar dades al servidor (ex: registre).@app.put("/")Actualitzar tot. Substitueix un objecte sencer.@app.patch("/")Actualitzar part. Només canvies un camp (ex: el nom).@app.delete("/")Eliminar. Esborrar un registre.ParàmetresPath(...)Dins l'URL. Ex: /users/{id}. Valida que l'ID sigui un número.Query(...)Després de l'URL. Ex: ?page=2&search=pep. Per filtres.Body(...)Dins el JSON. Quan vols rebre dades que no caben a l'URL.Header(...)Metadades. Per rebre tokens o informació del navegador.ValidacióField(...)Dins el Model (Pydantic). Defineix min/max de caràcters o valors.Respostesstatus_code@app.post("/", status_code=201) (Creat correctament).response_modelFiltra què ensenyes (Ex: no ensenyar la password de l'usuari).HTTPExceptionraise HTTPException(status_code=404, detail="No trobat").EstructuraAPIRouter()Serveix per separar les rutes en diferents fitxers (Modularitat).Depends()Injecció de dependències. Per comprovar si l'usuari està loguejat abans d'executar la funció.StaticFilesPer servir imatges, CSS o JavaScript des del backend.BackgroundTasksPer executar coses en segon pla (Ex: enviar un email de benvinguda).🛠️ Comandes d'Arquitectura (Exemples pràctics)Si vols que la teva aplicació faci coses específiques com la que demanaves de la documentació o redireccions:1. Redirecció AutomàticaSi vols que quan algú entri a l'arrel / el porti directament a la documentació:Pythonfrom fastapi.responses import RedirectResponse
+
+@app.get("/")
+async def main_route():
+    return RedirectResponse(url="/docs")
+2. Canviar la URL de la DocumentacióSi no vols que la doc estigui a /docs per seguretat, pots canviar-ho en crear l'app:Pythonapp = FastAPI(docs_url="/la-meva-documentacio-privada")
+3. Upload de FitxersPer rebre imatges o PDFs:Pythonfrom fastapi import UploadFile
+
+@app.post("/upload")
+async def upload_file(file: UploadFile):
+    return {"filename": file.filename}
