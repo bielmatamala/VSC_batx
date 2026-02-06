@@ -1,4 +1,5 @@
 import requests
+from main import transf_file
 
 SERVER_IP = "192.168.232.167"  # PC A's IP Address
 url = f"http://{SERVER_IP}:8000/transf"
@@ -6,6 +7,7 @@ url = f"http://{SERVER_IP}:8000/transf"
 response = requests.get(url)
 
 if response.status_code == 200:
+    transf_file("received_file", ".zip")
     with open("received_file.zip", "wb") as f:
         f.write(response.content)
     print("File downloaded successfully!")
