@@ -31,7 +31,7 @@ try:
     check = True
 
 except Exception as e:
-    log.log("Error en obrir les carpetes", e)
+    log.log(f"Error en obrir les carpetes: {e}")
     print(f"Error en obrir les carpetes: {e}")
     check = False
 

@@ -75,6 +75,8 @@ print("----------------------------------------------------")
 df_7 =df_3.rename(columns={"colesterol":"CT"})
 print(df_7)
 print("----------------------------------------------------")
-df_8 = df_3.set_index(keys = "edad", verify_integrity = True) #serveix per canviar l'index del dataframe, en aquest cas es canvia l'index a la columna "edad", amb l'opcio de verificar que els valors de la columna "edad" siguin únics per evitar problemes d'indexos duplicats
+df_8 = df_3.set_index(keys = "edad", verify_integrity = False) #serveix per canviar l'index del dataframe, en aquest cas es canvia l'index a la columna "edad", amb l'opcio de verificar que els valors de la columna "edad" siguin únics per evitar problemes d'indexos duplicats
 print(df_8)
 print("----------------------------------------------------")
+F = df_3.loc[1, "colesterol"] #serveix per seleccionar un subconjunt de dades del dataframe, en aquest cas es selecciona les files 1 a 3 i la columna "colesterol"
+print(F)
