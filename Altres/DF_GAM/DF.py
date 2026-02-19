@@ -22,6 +22,17 @@ data = {
     'Salida': ['DoubleDouble', 'DoubleTuck', 'TripleBack', 'DoubleTuck', 'DoubleTuck', 'DoubleDouble'],
     'Val_Sal': [0.6, 0.4, 0.7, 0.4, 0.4, 0.6]
 }
-
+def A_J():
+    A = 0.1
+    B = 0.2
+    C = 0.3
+    D = 0.4
+    E = 0.5
+    F = 0.6
+    G = 0.7
+    H = 0.8
+    I = 0.9
+    J = 1.0
+    
 def DF_GAM():
     return pd.DataFrame(data)
