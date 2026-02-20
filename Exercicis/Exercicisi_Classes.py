@@ -98,4 +98,55 @@ print(R.area())
 print(R.perimetre())
 print(R.diagonal)
 
-#------------------------------------------4--------------------------------
+#------------------------------------------5--------------------------------
+class Veichle:
+    def __init__(self, x, y, vx, vy, ax, ay):
+        self.x = x
+        self.y = y
+        self.vx = vx
+        self.vy = vy
+        self.ax = ax
+        self.ay = ay
+    
+    def moure(self, t):
+        xf = self.x + (self.vx*t)+(0.5*self.ax*(t**2))
+        yf = self.y + (self.vy*t) + (0.5*self.ay*(t**2))
+        P = (xf,yf)
+        print("Posició final: ", P)
+        return xf, yf
+    
+    def estat(self, t):
+        vxf = self.vx + self.ax*t
+        vyf = self.vy + self.ay*t
+        return (vxf, vyf)
+    
+    
+class Cotxe(Veichle):
+    def __init__(self, x, y, vx, vy, ax, ay, capacitat_combustible, combustible, consum_combustible):
+        super().__init__(x, y, vx, vy, ax, ay)
+        self.capacitat_combustible = capacitat_combustible
+        self.combustible = combustible
+        self.consum_combustible = consum_combustible
+
+    def repostar(self, litres):
+        if self.combustible + litres > self.capacitat_combustible:
+            raise ValueError("No es pot repostar més del que la capacitat permet")
+        else:
+            self.combustible += litres
+    
+    def comb_gastat(self):
+        posicio_inical = [self.x, self.y]
+        xf, yf = self.moure(3)
+        posicio_final = [xf, yf]
+        distancia = math.sqrt((posicio_final[0] - posicio_inical[0])**2 + (posicio_final[1] - posicio_inical[1])**2)
+        comb_gastat = distancia * self.consum_combustible
+        if comb_gastat > self.combustible:
+            raise ValueError("No hi ha suficient combustible per moure's durant 3 segons")
+        else:
+            self.combustible -= comb_gastat
+            return comb_gastat, self.combustible
+    
+Cotxe_1 = Cotxe(7, 10, 10, 10, 2, 2, 50, 150, 2)
+comb_gastat, comb_restant = Cotxe_1.comb_gastat()
+print(f"{round(comb_gastat, 2)} litres de combustible gastats després de moure's durant 3 segons")
+print(f"Combustible restant: {round(comb_restant, 2)} litres")
