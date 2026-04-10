@@ -1,4 +1,4 @@
-  print(f"Descarregat {user_input_descareges}")
+"""  print(f"Descarregat {user_input_descareges}")
                 elif user_input_username == 'convidats':
                     user_input_descareges = input("Què vols descarregar? ")
                     print("no pots descarregar res perquè ets convidat")
@@ -200,3 +200,4 @@
             print("Opció no vàlida.")
 else:
     print("Usuari o contrasenya incorrectes")
+"""
